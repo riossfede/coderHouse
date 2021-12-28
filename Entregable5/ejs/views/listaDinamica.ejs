@@ -1,0 +1,41 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
+  <title>Productos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <h2 class='text-center mb-4'>Vista de productos</h2>
+      <% if (count) { %>
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <td>Nombre</td>
+              <td>Precio</td>
+              <td>Foto</td>
+            </tr>  
+          </thead>
+        <tbody>
+          <% products.forEach(product => { %>
+            <tr>
+              <td><%=product.title%></td>
+              <td><%=product.price%></td>
+              <td>
+                <img src="<%= product.thumbnail%>" class="" alt="20px">
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+        </table> 
+     
+      <% } else { %>
+        <div class='alert alert-danger' role='alert'>
+          No hay productos disponibles, para agregar presione <a href='/api/productos/formulario' class='danger-link'>aqui</a>
+        </div>
+      <% } %>
+  </div>
+<body>  

@@ -1,0 +1,30 @@
+html 
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC', crossorigin='anonymous')
+         
+  body
+    div(class="container-fluid")
+      div(class='text-center mb-4 h4') Vista de productos
+    if count
+      table(class="table table-dark table-striped")
+        thead
+          tr
+            th  Nombre
+            th  Precio
+            th  Foto
+
+        tbody
+          each product in products
+            tr
+              td #{product.title}
+              td #{product.price}
+              td
+                img(style='width: 50px; height: auto' src=product.thumbnail alt='products')        
+        
+    else
+      div(class='alert alert-danger' role='alert') No hay productos disponibles, para agregar presione 
+        a(href='/api/productos/formulario' class='danger-link') aqui
+		
